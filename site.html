@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newfy Beat</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+
+               header {
+            background: #c92525;
+            color: white;
+            padding: 20px;
+            text-align: left;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        header p {
+            margin: 0;
+            font-style: italic;
+            font-size: 14px;
+        }
+
+        
+        .container {
+            width: 80%;
+            max-width: 900px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+       
+        .left {
+            float: left;
+            width: 60%;
+        }
+
+        .left h2 {
+            color: #c92525;
+        }
+
+        .left p {
+            color: #333;
+            line-height: 1.6;
+        }
+
+        
+        form {
+            margin-top: 15px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 90%;
+            padding: 6px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            background: #c92525;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 3px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background: #a81f1f;
+        }
+
+        
+        .right {
+            float: right;
+            width: 35%;
+            background: #f1f3f9;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .right h3 {
+            color: #004080;
+        }
+
+        .right p {
+            color: #333;
+            font-size: 14px;
+        }
+
+        
+        footer {
+            clear: both;
+            background: #c92525;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 12px;
+            margin-top: auto ;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Newfy Beat</h1>
+        <p>Making Websites Work for everybody</p>
+    </header>
+
+    <div class="container">
+        <div class="left">
+            <h2>Oque é a Newfy Beat</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+            <h2>2 texto</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+           <form id="feedbackForm" method="POST" action="Salvar.php">
+    <label>Nome:</label>
+    <input type="text" name="nome" id="nome" required>
+
+    <label>Email:</label>
+    <input type="text" name="email" id="email" required>
+
+    <label>O que você entendeu do projeto:</label>
+    <input type="text" name="opiniao" id="opiniao" required>
+
+    <label>Cite duas sugestões de melhorias pão e batata e feijão:</label>
+    <input type="text" name="melhorias" id="melhorias" required>
+
+    <input type="submit" value="Enviar">
+</form>
+            
+        </div>
+
+        <div class="right">
+            <h3>Making Websites</h3>
+            <p>Sed ut perspiciatis unde omnis iste natus error voluptatem accusantium doloremque laudantium.</p>
+
+            <h3>Como nos contatar</h3>
+            <p>Sed ut perspiciatis unde omnis iste natus error voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; Copyright Newfy Beat 
+    </footer>
+
+<script>
+    document.getElementById('feedbackForm').addEventListener('submit', async function(e) {
+        e.preventDefault(); 
+        
+        const nome = document.getElementById('nome').value;
+        const email = document.getElementById('email').value;
+        const opiniao = document.getElementById('opiniao').value;
+        const melhorias = document.getElementById('melhorias').value;
+        
+        if(nome && email && opiniao && melhorias) {
+            try {
+                const formData = new FormData(this);
+                const response = await fetch('Salvar.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if(response.ok) {
+                    alert('Obrigado pelo seu feedback!');   
+                    location.reload();
+                } else {
+                    alert('Erro ao enviar. Tente novamente.');
+                }
+            } catch(error) {
+                alert('Erro ao enviar.');
+                console.error(error);
+            }
+        } else {
+            alert('Por favor, preencha todos os campos!');
+        }
+    });
+</script>
+</body>
+</html>
