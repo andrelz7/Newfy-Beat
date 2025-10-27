@@ -129,7 +129,7 @@
 
     <header>
         <h1>Newfy Beat</h1>
-        <p>Making Websites Work for everybody</p>
+        <p>Making Websites Work for everybody COLOCAR A LOGO</p>
     </header>
 
     <div class="container">
@@ -144,13 +144,18 @@
     <label>Nome:</label>
     <input type="text" name="nome" id="nome" required>
 
-    <label>Email:</label>
-    <input type="text" name="email" id="email" required>
+    <label>Você é?:</label>
+    <select name="perfil" id="perfil" required>
+        <option value="">Selecione...</option>
+        <option value="professor">Professor</option>
+        <option value="aluno">Aluno</option>
+        <option value="convidado">Convidado</option>
+    </select>
 
     <label>O que você entendeu do projeto:</label>
     <input type="text" name="opiniao" id="opiniao" required>
 
-    <label>Cite duas sugestões de melhorias pão e batata e feijão:</label>
+    <label>Duas sugestões de melhorias:</label>
     <input type="text" name="melhorias" id="melhorias" required>
 
     <input type="submit" value="Enviar">
@@ -159,7 +164,7 @@
         </div>
 
         <div class="right">
-            <h3>Making Websites</h3>
+            <h3>3 texto</h3>
             <p>Sed ut perspiciatis unde omnis iste natus error voluptatem accusantium doloremque laudantium.</p>
 
             <h3>Como nos contatar</h3>
@@ -168,7 +173,7 @@
     </div>
 
     <footer>
-        &copy; Copyright Newfy Beat 
+    &copy; 2025 Newfy Beat. Todos os direitos reservados / <a href="Direitos de privacidade /"   ></a>
     </footer>
 
 <script>
@@ -176,11 +181,11 @@
         e.preventDefault(); 
         
         const nome = document.getElementById('nome').value;
-        const email = document.getElementById('email').value;
+    const perfil = document.getElementById('perfil').value;
         const opiniao = document.getElementById('opiniao').value;
         const melhorias = document.getElementById('melhorias').value;
         
-        if(nome && email && opiniao && melhorias) {
+    if(nome && perfil && opiniao && melhorias) {
             try {
                 const formData = new FormData(this);
                 const response = await fetch('Salvar.php', {
