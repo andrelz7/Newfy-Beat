@@ -2,23 +2,56 @@
 require_once 'Conexao.php';
 
 try {
-    $sql = "SELECT * FROM feedbacks ORDER BY data_criacao DESC";
+    $sql = 'SELECT id, nome, voce_e, selecione, o_que_entendeu, sugestao_1, sugestao_2, criado_em FROM respostas_projeto ORDER BY criado_em DESC';
     $stmt = $pdo->query($sql);
-    $feedbacks = $stmt->fetchAll();
-
-    if (count($feedbacks) === 0) {
-        echo "<p>Nenhum feedback encontrado.</p>";
-        exit();
-    }
-
-    foreach ($feedbacks as $feedback) {
-        echo "<div class='feedback'>";
-        echo "<h3>" . htmlspecialchars($feedback['nome']) . "</h3>";
-        echo "<p>" . nl2br(htmlspecialchars($feedback['mensagem'])) . "</p>";
-        echo "<small>Data: " . date('d/m/Y H:i', strtotime($feedback['data_criacao'])) . "</small>";
-        echo "</div>";
-    }
-} catch(PDOException $e) {
-    error_log("Erro ao listar feedbacks: " . $e->getMessage());
-    echo "<p>Erro ao carregar feedbacks. Tente novamente mais tarde.</p>";
+    $rows = $stmt->fetchAll();
+} catch (PDOException $e) {
+    die('Erro ao recuperar respostas: ' . $e->getMessage());
 }
+?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <title>Listar Respostas - Newfy Beat</title>
+    <style>
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; }
+        th { background: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>Respostas recebidas</h1>
+    <p><a href="site.php">Voltar ao formulário</a></p>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Perfil</th>
+                <th>O que entendeu</th>
+                <th>Sugestão 1</th>
+                <th>Sugestão 2</th>
+                <th>Criado em</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php if (empty($rows)): ?>
+            <tr><td colspan="7">Nenhuma resposta encontrada.</td></tr>
+        <?php else: ?>
+            <?php foreach ($rows as $r): ?>
+                <tr>
+                    <td><?= htmlspecialchars($r['id']) ?></td>
+                    <td><?= htmlspecialchars($r['nome']) ?></td>
+                    <td><?= htmlspecialchars($r['voce_e']) ?></td>
+                    <td><?= nl2br(htmlspecialchars($r['o_que_entendeu'])) ?></td>
+                    <td><?= nl2br(htmlspecialchars($r['sugestao_1'])) ?></td>
+                    <td><?= nl2br(htmlspecialchars($r['sugestao_2'])) ?></td>
+                    <td><?= htmlspecialchars($r['criado_em']) ?></td>
+                </tr>
+            <?php endforeach; ?>
+        <?php endif; ?>
+        </tbody>
+    </table>
+</body>
+</html>

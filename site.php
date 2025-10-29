@@ -1,3 +1,17 @@
+<?php
+
+
+if (isset($_POST['submit'])) {
+    // Exibir os valores enviados de forma segura
+    echo '<pre>';
+    echo 'Nome: ' . htmlspecialchars($_POST['nome'] ?? '') . "\n";
+    echo 'Perfil: ' . htmlspecialchars($_POST['perfil'] ?? '') . "\n"; // uso do índice correto 'perfil'
+    echo 'Opinião: ' . htmlspecialchars($_POST['opiniao'] ?? '') . "\n";
+    echo 'Melhorias: ' . htmlspecialchars($_POST['melhorias'] ?? '') . "\n";
+    echo '</pre>';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -129,22 +143,27 @@
 
     <header>
         <h1>Newfy Beat</h1>
-        <p>Making Websites Work for everybody COLOCAR A LOGO</p>
+        <p>O</p>
     </header>
 
     <div class="container">
         <div class="left">
             <h2>Oque é a Newfy Beat</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <p>Nosso projeto se trata da ideia de uma rede social voltada para todo e qualquer tipo de música, buscando uma interação entre usuários com gostos similares, recomendações por algoritmo baseado nas atividades recentes do usuário e diversas outras funções dentro do meio musical.</p>
 
-            <h2>2 texto</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h2>Quem somos?</h2>
+            <p>Somos um grupo de estudantes do curso de Desenvolvimento de Sistemas que buscamos levar a ideia de nosso projeto a frente, hoje apresentando apenas uma demonstração do que seria uma página de nosso site!.</p>
 
-           <form id="feedbackForm" method="POST" action="Salvar.php">
+
+
+           <form id="formulario" method="POST" action="Salvar.php">
     <label>Nome:</label>
     <input type="text" name="nome" id="nome" required>
 
-    <label>Você é?:</label>
+
+  
+
+  <label>Você é?:</label>
     <select name="perfil" id="perfil" required>
         <option value="">Selecione...</option>
         <option value="professor">Professor</option>
@@ -158,7 +177,7 @@
     <label>Duas sugestões de melhorias:</label>
     <input type="text" name="melhorias" id="melhorias" required>
 
-    <input type="submit" value="Enviar">
+    <input type="submit" value="Enviar" name="submit">
 </form>
             
         </div>
@@ -168,7 +187,7 @@
             <p>Sed ut perspiciatis unde omnis iste natus error voluptatem accusantium doloremque laudantium.</p>
 
             <h3>Como nos contatar</h3>
-            <p>Sed ut perspiciatis unde omnis iste natus error voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+            <p></p>
         </div>
     </div>
 
@@ -176,37 +195,8 @@
     &copy; 2025 Newfy Beat. Todos os direitos reservados / <a href="Direitos de privacidade /"   ></a>
     </footer>
 
-<script>
-    document.getElementById('feedbackForm').addEventListener('submit', async function(e) {
-        e.preventDefault(); 
-        
-        const nome = document.getElementById('nome').value;
-    const perfil = document.getElementById('perfil').value;
-        const opiniao = document.getElementById('opiniao').value;
-        const melhorias = document.getElementById('melhorias').value;
-        
-    if(nome && perfil && opiniao && melhorias) {
-            try {
-                const formData = new FormData(this);
-                const response = await fetch('Salvar.php', {
-                    method: 'POST',
-                    body: formData
-                });
-                
-                if(response.ok) {
-                    alert('Obrigado pelo seu feedback!');   
-                    location.reload();
-                } else {
-                    alert('Erro ao enviar. Tente novamente.');
-                }
-            } catch(error) {
-                alert('Erro ao enviar.');
-                console.error(error);
-            }
-        } else {
-            alert('Por favor, preencha todos os campos!');
-        }
-    });
+
+   
 </script>
 </body>
 </html>
