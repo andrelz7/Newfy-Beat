@@ -184,11 +184,10 @@
         </div>
 
         <div class="right">
-            <h3>3 texto</h3>
-            <p>Sed ut perspiciatis unde omnis iste natus error voluptatem accusantium doloremque laudantium.</p>
+        
 
             <h3>Como nos contatar</h3>
-            <p></p>
+            <p>andrelz7carvalho@gmail.com</p>
         </div>
     </div>
 
