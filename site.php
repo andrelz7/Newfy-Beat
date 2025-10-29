@@ -18,30 +18,57 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Newfy Beat</title>
+    <!-- favicon -->
+    <link rel="icon" href="logo.ico" type="image/x-icon">
     <style>
+        :root{
+            --primary: #c92525; /* vermelho do logo */
+            --primary-dark: #a21b1b;
+            --accent: #004080; /* azul de destaque */
+            --muted-bg: #f5f7fb;
+            --panel-bg: #ffffff;
+        }
+
         body {
             font-family: Arial, Helvetica, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f7f7f7;
+            background-color: var(--muted-bg);
+            color: #222;
         }
 
                header {
-            background: #c92525;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--primary);
             color: white;
-            padding: 20px;
+            padding: 12px 20px;
             text-align: left;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+
+        /* Logo ao lado do título */
+        #site-logo {
+            height: 48px;
+            width: auto;
+            display: inline-block;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.06);
+            padding: 4px;
         }
 
         header h1 {
             margin: 0;
-            font-size: 36px;
+            font-size: 32px;
+            letter-spacing: 0.5px;
         }
 
         header p {
             margin: 0;
             font-style: italic;
             font-size: 14px;
+            opacity: 0.9;
         }
 
         
@@ -142,10 +169,12 @@ if (isset($_POST['submit'])) {
 <body>
 
     <header>
+        <img id="site-logo" src="logo.ico" alt="Logo Newfy Beat">
         <h1>Newfy Beat</h1>
-        <p>O</p>
+        <p style="margin-left:8px;">O</p>
     </header>
-
+    
+    <link rel="icon" href="logo.ico" type="image/x-icon">
     <div class="container">
         <div class="left">
             <h2>Oque é a Newfy Beat</h2>
