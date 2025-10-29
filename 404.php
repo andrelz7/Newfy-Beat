@@ -1,16 +1,3 @@
-<?php
-
-
-if (isset($_POST['submit'])) {
-    // Exibir os valores enviados de forma segura
-    echo '<pre>';
-    echo 'Nome: ' . htmlspecialchars($_POST['nome'] ?? '') . "\n";
-    echo 'Perfil: ' . htmlspecialchars($_POST['perfil'] ?? '') . "\n"; // uso do índice correto 'perfil'
-    echo 'Opinião: ' . htmlspecialchars($_POST['opiniao'] ?? '') . "\n";
-    echo 'Melhorias: ' . htmlspecialchars($_POST['melhorias'] ?? '') . "\n";
-    echo '</pre>';
-}
-?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -22,9 +9,9 @@ if (isset($_POST['submit'])) {
     <link rel="icon" href="logo.ico" type="image/x-icon">
     <style>
         :root{
-            --primary: #c92525; /* vermelho do logo */
+            --primary: #c92525; 
             --primary-dark: #a21b1b;
-            --accent: #004080; /* azul de destaque */
+            --accent: #004080; 
             --muted-bg: #f5f7fb;
             --panel-bg: #ffffff;
         }
@@ -48,7 +35,7 @@ if (isset($_POST['submit'])) {
             box-shadow: 0 2px 6px rgba(0,0,0,0.08);
         }
 
-        /* Logo ao lado do título */
+        
         #site-logo {
             height: 48px;
             width: auto;
@@ -189,25 +176,10 @@ if (isset($_POST['submit'])) {
     <label>Nome:</label>
     <input type="text" name="nome" id="nome" required>
 
-
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeJmnJe_x8NvodO1l1UTw80LTrz8st7JdMjCngYdkyeTleEbA/viewform?embedded=true" width="640" height="933" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
   
 
-  <label>Você é?:</label>
-    <select name="perfil" id="perfil" required>
-        <option value="">Selecione...</option>
-        <option value="professor">Professor</option>
-        <option value="aluno">Aluno</option>
-        <option value="convidado">Convidado</option>
-    </select>
-
-    <label>O que você entendeu do projeto:</label>
-    <input type="text" name="opiniao" id="opiniao" required>
-
-    <label>Duas sugestões de melhorias:</label>
-    <input type="text" name="melhorias" id="melhorias" required>
-
-    <input type="submit" value="Enviar" name="submit">
-</form>
+ 
             
         </div>
 
