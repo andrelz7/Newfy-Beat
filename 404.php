@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Newfy Beat</title>
-    <!-- favicon -->
     <link rel="icon" href="logo.ico" type="image/x-icon">
     <style>
         :root{
@@ -161,7 +160,7 @@
         <p style="margin-left:8px;">O</p>
     </header>
     
-    <link rel="icon" href="logo.ico" type="image/x-icon">
+    <link rel="icon" href="logo.icon" type="image/x-icon">
     <div class="container">
         <div class="left">
             <h2>Oque é a Newfy Beat</h2>
@@ -172,9 +171,8 @@
 
 
 
-           <form id="formulario" method="POST" action="Salvar.php">
-    <label>Nome:</label>
-    <input type="text" name="nome" id="nome" required>
+           
+   
 
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeJmnJe_x8NvodO1l1UTw80LTrz8st7JdMjCngYdkyeTleEbA/viewform?embedded=true" width="640" height="933" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
   
@@ -187,7 +185,8 @@
         
 
             <h3>Como nos contatar</h3>
-            <p>andrelz7carvalho@gmail.com</p>
+            <p>andrelz7carvalho@gmail.com </p>
+            <p>otaviopinheiro242@gmail.com</p>
         </div>
     </div>
 
